@@ -62,9 +62,7 @@ Pre-requisites:
   ```
   Allow dynamic-group <your dynamic group name> to inspect object-family in compartment <your compartment name>
   ```
-
   e.g.
-
   ```
   Allow dynamic-group demo-func-dyn-group to inspect object-family in compartment demo-func-compartment
   ```
@@ -77,53 +75,45 @@ Create your application environment
   Get the python boilerplate by running:
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-    ```
-    mkdir <directory-name>
-    ```
-    e.g.
-    ```
-    mkdir python-object-storage
-    ```
+  ```
+  mkdir <directory-name>
+  ```
+  e.g.
+  ```
+  mkdir python-object-storage
+  ```
 
   Enter the directory and create an `app.yaml` file to denote that this is an application directory and not a function directory.
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-    ```
-    echo "name: <app-name>" >> app.yaml
-    ```
-    e.g.
-    ```
-    echo "name: python-object-storage" >> app.yaml
-    ```
+  ```
+  echo "name: <app-name>" >> app.yaml
+  ```
+  e.g.
+  ```
+  echo "name: python-object-storage" >> app.yaml
+  ```
 
   Now, we can initialize our functions, in this tutorial we will have two functions, one to list objects in a bucket, and one to put objects in a bucket.
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-    ```
-    fn init --runtime python <function-name>
-    ```
-    e.g.
-    ```
-    fn init --runtime python list-objects
-    ```
-    ```
-    fn init --runtime python put-objects
-    ```
+  ```
+  fn init --runtime python <function-name>
+  ```
+  e.g.
+  ```
+  fn init --runtime python list-objects
+  fn init --runtime python put-objects
+  ```
 
   This will make two boilerplates in separate directories within your project folder. Make sure both directories have a copy of `rp.py` and an `__init__.py`
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-    ```
-    touch put-objects/__init__.py
-    ```
-    ```
-    touch list-objects/__init__.py
-    ```
-    ```
-    cp rp.py put-objects
-    ```
-    ```
-    cp rp.py list-objects
-    ```
+  ```
+  touch put-objects/__init__.py
+  touch list-objects/__init__.py
+  cp rp.py put-objects
+  cp rp.py list-objects
+  ```
 
 ### Create an Application that is connected to Oracle Functions with Required Configuration
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
@@ -300,13 +290,9 @@ Test
   ```
   echo -n <JSON object> | fn invoke <your app name> <your function name>
   ```
-
   e.g.
-
   ```
   echo -n '{"fileName": "<file-name>", "bucketName": "<bucket-name>"}' | fn invoke python-object-storage list-objects
-  ```
-  ```
   echo -n '{"fileName": "<file-name>", "bucketName": "<bucket-name>", "content": "<content>"}' | fn invoke python-object-storage put-objects
   ```
   Upon success, you should see either a list of objects or a success message appear in your terminal.
