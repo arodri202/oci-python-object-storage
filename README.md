@@ -160,7 +160,7 @@ These next steps are needed for every function so make sure to update this for a
   By calling `sys.path.append(".")` the Python interpreter is able to import the `rp.py` Python module in your directory that you downloaded earlier.
 
 ## List Objects
- Handler method
+##### Handler method
   This is what is called when the function is invoked by Oracle Functions, delete what is given from the boilerplate and update it to contain the following:
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAVV2EYKYR4LI72BV6S5CUJZE)
@@ -186,7 +186,7 @@ These next steps are needed for every function so make sure to update this for a
       )
   ```
 
-  Do method
+##### Do method
   Create the following method.
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAVV2EYKYR4LI72BV6S5CUJZE)
@@ -216,7 +216,7 @@ These next steps are needed for every function so make sure to update this for a
   Here we are creating an [ObjectStorageClient](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/object_storage/client/oci.object_storage.ObjectStorageClient.html) from the [OCI Python SDK](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html), which allows us to connect to OCI with the provider's data we get from our Mock Resource Principals and it allows us to make a call to gain access to object storage services.
 
 ## Put Objects
-Handler method
+##### Handler method
  This is what is called when the function is invoked by Oracle Functions, delete what is given from the boilerplate and update it to contain the following:
 
  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAVV2EYKYR4LI72BV6S5CUJZE)
@@ -244,7 +244,7 @@ Handler method
      )
  ```
 
- Do method
+##### Do method
  Create the following method.
 
  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAVV2EYKYR4LI72BV6S5CUJZE)
