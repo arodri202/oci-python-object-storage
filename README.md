@@ -80,35 +80,28 @@ Create your application environment
     ```
     mkdir <directory-name>
     ```
-
     e.g.
-
     ```
     mkdir python-object-storage
     ```
 
   Enter the directory and create an `app.yaml` file to denote that this is an application directory and not a function directory.
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-
     ```
     echo "name: <app-name>" >> app.yaml
     ```
-
     e.g.
-
     ```
     echo "name: python-object-storage" >> app.yaml
     ```
 
   Now, we can initialize our functions, in this tutorial we will have two functions, one to list objects in a bucket, and one to put objects in a bucket.
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
 
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
     ```
     fn init --runtime python <function-name>
     ```
-
     e.g.
-
     ```
     fn init --runtime python list-objects
     fn init --runtime python put-objects
@@ -117,20 +110,15 @@ Create your application environment
   This will make two boilerplates in separate directories within your project folder. Make sure both directories have a copy of `rp.py` and an `__init__.py`
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-
     ```
     touch put-objects/__init__.py
-
     touch list-objects/__init__.py
-
     cp rp.py put-objects
-
     cp rp.py list-objects
     ```
 
 ### Create an Application that is connected to Oracle Functions with Required Configuration
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
-
   ```
   fn create app <app-name> --annotation oracle.com/oci/subnetIds='["<subnet-ocid>"]' --config TENANCY=<TENANCY_OCID> --config USER=<USER_OCID --config FINGERPRINT=<PUBLIC_KEY_FINGERPRINT> --config PASSPHRASE=<PASSPHRASE> --config REGION=<OCI_REGION> --config NAMESPACE=<NAMESPACE>
   ```
@@ -138,7 +126,6 @@ Create your application environment
   You can find the subnet-ocid by logging on to [cloud.oracle.com](https://cloud.oracle.com/en_US/sign-in), navigating to Core Infrastructure > Networking > Virtual Cloud Networks. Make sure you are in the correct Region and Compartment, click on your VNC and select the subnet you wish to use. Since we ran the `setup_config.sh` script, we can use the variables we already created from your config file so you don't have to do any searching.
 
   e.g.
-
   ```
   fn create app python-object-storage --annotation oracle.com/oci/subnetIds='["ocid1.subnet.oc1.phx.aaaaaaaacnh..."]' --config OCI_USER=$OCI_USER --config OCI_FINGERPRINT=$OCI_FINGERPRINT --config OCI_TENANCY=$OCI_TENANCY --config OCI_PRIVATE_KEY_PASS=$OCI_PRIVATE_KEY_PASS --config OCI_REGION=$OCI_REGION --config OCI_NAMESPACE=$OCI_NAMESPACE
   ```
