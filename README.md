@@ -4,7 +4,7 @@
 
   Uses the [OCI Python SDK](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html) to create a client that gets access to OCI Object Storage.
 
-  As you make your way through this tutorial, look out for this icon. ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6) Whenever you see it, it's time for you to perform an action.
+  As you make your way through this tutorial, look out for this icon. ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE) Whenever you see it, it's time for you to perform an action.
 
 
 Pre-requisites:
@@ -18,7 +18,7 @@ Pre-requisites:
   4. Have [Fn CLI setup with Oracle Functions](https://preview.oci.oraclecorp.com/iaas/Content/Functions/Tasks/functionsconfiguringclient.htm?tocpath=Services%7CFunctions%7CPreparing%20for%20Oracle%20Functions%7CConfiguring%20Your%20Client%20Environment%20for%20Function%20Development%7C_____0)
 
 ### Switch to the correct context
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```
   fn use context <your context name>
   ```
@@ -42,7 +42,7 @@ Pre-requisites:
 
   When specifying a rule, consider the following examples:
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   * If you want all functions in a compartment to be able to access a resource, enter a rule similar to the following that adds all functions in the compartment with the specified compartment OCID to the dynamic group:
   ```
   ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaa23______smwa'}
@@ -58,7 +58,7 @@ Pre-requisites:
 
   Your policy should look something like this:
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```
   Allow dynamic-group <your dynamic group name> to inspect object-family in compartment <your compartment name>
   ```
@@ -76,7 +76,7 @@ Create your application environment
 ------------------
   Get the python boilerplate by running:
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
     ```
     mkdir <directory-name>
     ```
@@ -86,7 +86,7 @@ Create your application environment
     ```
 
   Enter the directory and create an `app.yaml` file to denote that this is an application directory and not a function directory.
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
     ```
     echo "name: <app-name>" >> app.yaml
     ```
@@ -95,7 +95,7 @@ Create your application environment
     echo "name: python-object-storage" >> app.yaml
     ```
   Now, we can initialize our functions, in this tutorial we will have two functions, one to list objects in a bucket, and one to put objects in a bucket.
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
     ```
     fn init --runtime python <function-name>
     ```
@@ -106,7 +106,7 @@ Create your application environment
     ```
   This will make two boilerplates in separate directories within your project folder. Make sure both directories have a copy of `rp.py` and an `__init__.py`
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
     ```
     touch put-objects/__init__.py
     touch list-objects/__init__.py
@@ -115,7 +115,7 @@ Create your application environment
     ```
 
 ### Create an Application that is connected to Oracle Functions with Required Configuration
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```
   fn create app <app-name> --annotation oracle.com/oci/subnetIds='["<subnet-ocid>"]' --config TENANCY=<TENANCY_OCID> --config USER=<USER_OCID --config FINGERPRINT=<PUBLIC_KEY_FINGERPRINT> --config PASSPHRASE=<PASSPHRASE> --config REGION=<OCI_REGION> --config NAMESPACE=<NAMESPACE>
   ```
@@ -132,7 +132,7 @@ These next steps are needed for every function so make sure to update this for a
 ### Requirements
   Update your requirements.txt file to contain the following:
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```
   fdk
   oci-cli
@@ -141,7 +141,7 @@ These next steps are needed for every function so make sure to update this for a
 ### Open func.py
   Update the imports so that you contain the following.
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```python
   import io
   import json
@@ -162,7 +162,7 @@ These next steps are needed for every function so make sure to update this for a
  --------------
   This is what is called when the function is invoked by Oracle Functions, delete what is given from the boilerplate and update it to contain the following:
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```python
   def handler(ctx, data: io.BytesIO=None):
       provider = rp.MockResourcePrincipalProvider() # initialized provider here
@@ -189,13 +189,13 @@ These next steps are needed for every function so make sure to update this for a
   ---------
   Create the following method.
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```python
   def do(provider, bucketName):
   ```
   This is where we'll put the bulk of our code that will connect to OCI and return the list of objects in the passed in bucket
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```python
       client = oci.object_storage.ObjectStorageClient(provider.config, signer=provider.signer)
 
@@ -220,7 +220,7 @@ Handler method
 --------------
  This is what is called when the function is invoked by Oracle Functions, delete what is given from the boilerplate and update it to contain the following:
 
- ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+ ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
  ```python
  def handler(ctx, data: io.BytesIO=None):
      provider = rp.MockResourcePrincipalProvider() # initialized provider here
@@ -249,13 +249,13 @@ Handler method
  ---------
  Create the following method.
 
- ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+ ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
  ```python
 def do(provider, bucketName, fileName, content):
  ```
  This is where we'll put the bulk of our code that will connect to OCI and put our object into the bucket provided.
 
- ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+ ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
  ```python
      client = oci.object_storage.ObjectStorageClient(provider.config, signer=provider.signer)
      try:
@@ -275,7 +275,7 @@ Test
 ----
 ### Deploy the function
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```
   fn -v deploy --app <your app name> --all
   ```
@@ -288,7 +288,7 @@ Test
 
 ### Invoke the function
 
-  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAR4LIY67BUJT2ZB5M25CUHQ6)
+  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
   ```
   echo -n <JSON object> | fn invoke <your app name> <your function name>
   ```
