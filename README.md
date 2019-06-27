@@ -104,6 +104,8 @@ Create your application environment
     e.g.
     ```
     fn init --runtime python list-objects
+    ```
+    ```
     fn init --runtime python put-objects
     ```
 
@@ -112,8 +114,14 @@ Create your application environment
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
     ```
     touch put-objects/__init__.py
+    ```
+    ```
     touch list-objects/__init__.py
+    ```
+    ```
     cp rp.py put-objects
+    ```
+    ```
     cp rp.py list-objects
     ```
 
@@ -163,7 +171,6 @@ These next steps are needed for every function so make sure to update this for a
 
 ## List Objects
  Handler method
- --------------
   This is what is called when the function is invoked by Oracle Functions, delete what is given from the boilerplate and update it to contain the following:
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
@@ -190,7 +197,6 @@ These next steps are needed for every function so make sure to update this for a
   ```
 
   Do method
-  ---------
   Create the following method.
 
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
@@ -221,7 +227,6 @@ These next steps are needed for every function so make sure to update this for a
 
 ## Put Objects
 Handler method
---------------
  This is what is called when the function is invoked by Oracle Functions, delete what is given from the boilerplate and update it to contain the following:
 
  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
@@ -250,7 +255,6 @@ Handler method
  ```
 
  Do method
- ---------
  Create the following method.
 
  ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAU543BZGF6V5TKHRH25CUILE)
@@ -301,7 +305,8 @@ Test
 
   ```
   echo -n '{"fileName": "<file-name>", "bucketName": "<bucket-name>"}' | fn invoke python-object-storage list-objects
-
+  ```
+  ```
   echo -n '{"fileName": "<file-name>", "bucketName": "<bucket-name>", "content": "<content>"}' | fn invoke python-object-storage put-objects
   ```
   Upon success, you should see either a list of objects or a success message appear in your terminal.
