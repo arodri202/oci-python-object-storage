@@ -8,10 +8,9 @@ import oci.object_storage
 
 sys.path.append(".")
 import rp
-# get
+
 def handler(ctx, data: io.BytesIO=None):
     provider = rp.MockResourcePrincipalProvider() # initialized provider here
-
     try:
         body = json.loads(data.getvalue())
         bucketName = body.get("bucketName")
