@@ -1,4 +1,4 @@
-# Using Environmental Variables to Access Object Storage with the OCI Python SDK
+# Using Resource Principals to Access Object Storage with the OCI Python SDK
 
   This function uses Environmental Configuration to gain access to OCI's Object Storage.
 
