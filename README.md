@@ -65,6 +65,7 @@ Pre-requisites:
 Create Applications
 --------------------
 1. Create an Application that is connected to Oracle Functions
+
   ![user input icon](https://raw.githubusercontent.com/arodri202/oci-python-object-storage/master/images/userinput.png?token=AK4AYAVV2EYKYR4LI72BV6S5CUJZE)
   ```
   fn create app <app-name> --annotation oracle.com/oci/subnetIds='["<subnet-ocid>"]
