@@ -1,6 +1,6 @@
 # Using Resource Principals to Access Object Storage with the OCI Python SDK
 
-  This function uses Environmental Configuration to gain access to OCI's Object Storage.
+  This function uses the OCI Python SDK to create a Resource Principals Signer to authenticate a function call to OCI's Object Storage.
 
   Uses the [OCI Python SDK](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html) to create a client that gets access to OCI Object Storage.
 
